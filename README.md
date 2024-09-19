@@ -1,2 +1,1 @@
-# locustcloud.github.io
-Locust Cloud User Documentation
+pip install locust-cloud

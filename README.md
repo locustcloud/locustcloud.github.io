@@ -4,13 +4,13 @@
 pip install locust-cloud
 ```
 
-## Usage
-
 ```bash
 # in your .bashrc or other login script
 export LOCUST_CLOUD_USERNAME='your@email.com'
 export LOCUST_CLOUD_PASSWORD='yourpassword'
 ```
+
+## Usage
 
 ```bash
 locust-cloud -f my_locust_file.py --users 1000 ... # any other regular locust parameters

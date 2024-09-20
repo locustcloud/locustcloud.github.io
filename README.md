@@ -1,5 +1,3 @@
-# Locust Cloud
-
 ## Installation
 
 ```bash

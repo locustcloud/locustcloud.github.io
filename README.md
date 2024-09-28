@@ -13,7 +13,7 @@ export LOCUST_CLOUD_PASSWORD='yourpassword'
 ## Usage
 
 ```bash
-locust-cloud -f my_locustfile.py --users 1000 ... # any other regular locust parameters
+locust-cloud -f my_locustfile.py --users 1000 # and any other regular locust parameters
 ```
 
 ## Extra python packages
@@ -27,4 +27,3 @@ locust-cloud -f my_locustfile.py --requirements requirements.txt
 ## Notes
 
 * Remember to only direct locust-cloud at sites/services you actually own, or have permission to load test.
-* Use [FastHttpUser](https://docs.locust.io/en/stable/increase-performance.html) in your tests for optimal load generator performance.

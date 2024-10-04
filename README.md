@@ -12,6 +12,14 @@ export LOCUST_CLOUD_PASSWORD='yourpassword'
 
 ## Usage
 
+List options specific to locust-cloud:
+
+```bash
+locust-cloud --help
+```
+
+Basic way to run locust-cloud:
+
 ```bash
 locust-cloud -f my_locustfile.py --users 1000 # and any other regular locust parameters
 ```

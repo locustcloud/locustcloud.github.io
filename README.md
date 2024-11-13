@@ -8,7 +8,6 @@ pip install locust-cloud
 # in your .bashrc or other login script
 export LOCUSTCLOUD_USERNAME='your@email.com'
 export LOCUSTCLOUD_PASSWORD='yourpassword'
-export AWS_DEFAULT_REGION="us-east-1"
 ```
 
 ## Usage

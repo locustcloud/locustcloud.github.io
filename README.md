@@ -8,6 +8,7 @@ pip install locust-cloud
 # in your .bashrc or other login script
 export LOCUSTCLOUD_USERNAME='your@email.com'
 export LOCUSTCLOUD_PASSWORD='yourpassword'
+export AWS_DEFAULT_REGION="us-east-1"
 ```
 
 ## Usage
@@ -24,11 +25,12 @@ Basic way to run locust-cloud:
 locust-cloud -f my_locustfile.py --users 1000 # and any other regular locust parameters
 ```
 
-Spawn a basic mock service for testing:
+<!-- Spawn a basic mock service for testing:
 
 ```bash
 locust-cloud -f my_locustfile.py --users 1000 --mock-server
 ```
+-->
 
 ## Extra python packages
 

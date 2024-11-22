@@ -2,8 +2,6 @@
 
 Thanks for choosing Locust Cloud as your load test provider!
 
-This documentation will help you get started with your first load test, whether you are a paying customer or just evaluating Locust Cloud.
-
 If you have questions or get stuck, feel free to reach out to us on [support@locust.cloud](mailto:support@locust.cloud).
 
 ## Installation
@@ -14,7 +12,9 @@ locust-cloud is installed as a regular Python program:
 pip install locust-cloud
 ```
 
-To authenticate, locust-cloud needs your credentials. In your `.bashrc` or other login script, add this:
+To authenticate, locust-cloud needs the credentials you set up during registration.
+
+In your `.zshrc`/`.bashrc` or other login script, add this:
 
 ```bash
 export LOCUSTCLOUD_USERNAME='your@email.com'

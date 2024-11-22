@@ -1,4 +1,10 @@
-Welcome to Locust Cloud's documentation. If you have questions or get stuck, feel free to reach out to us on [support@locust.cloud](mailto:support@locust.cloud).
+## Welcome to Locust Cloud
+
+Thanks for choosing Locust Cloud as your load test provider!
+
+This documentation will help you get started with your first load test, whether you are a paying customer or just evaluating Locust Cloud.
+
+If you have questions or get stuck, feel free to reach out to us on [support@locust.cloud](mailto:support@locust.cloud).
 
 ## Installation
 
@@ -23,7 +29,7 @@ export LOCUSTCLOUD_REGION='eu-north-1'
 
 ## Usage
 
-### List options
+### List available options
 
 ```bash
 locust-cloud --help

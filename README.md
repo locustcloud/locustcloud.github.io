@@ -9,7 +9,7 @@ pip install locust-cloud
 export LOCUSTCLOUD_USERNAME='your@email.com'
 export LOCUSTCLOUD_PASSWORD='yourpassword'
 # us-east-1 is the default region, if you are in EU, use this:
-export LOCUSTCLOUD_REGION=eu-north-1
+export LOCUSTCLOUD_REGION='eu-north-1'
 ```
 
 ## Notes

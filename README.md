@@ -1,11 +1,16 @@
+Welcome to Locust Cloud's documentation. If you have questions or get stuck, feel free to reach out to us on [support@locust.cloud](mailto:support@locust.cloud).
+
 ## Installation
+
+locust-cloud is installed as a regular Python program:
 
 ```bash
 pip install locust-cloud
 ```
 
+To authenticate, locust-cloud needs your credentials. In your `.bashrc` or other login script, add this:
+
 ```bash
-# in your .bashrc or other login script
 export LOCUSTCLOUD_USERNAME='your@email.com'
 export LOCUSTCLOUD_PASSWORD='yourpassword'
 # us-east-1 is the default region, if you are in EU, use this:

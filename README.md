@@ -30,7 +30,7 @@ locust-cloud -f my_locustfile.py --users 100 # ... other regular locust paramete
 
 ### Complete example
 
-If you're learning Locust and want to try it out, Locust Cloud has its own demo mock server you can test against, using the locustfile below. Pass the --mock-server spawn the mock next to your load generators and point locust towards it.
+If you're learning Locust and want to try it out, Locust Cloud has its own demo mock server you can test against, using the locustfile below. Pass `--mock-server` to spawn the mock next to your load generators and point Locust towards it.
 
 ```bash
 locust-cloud -f my_locustfile.py --users 100 --mock-server
@@ -51,7 +51,9 @@ class MyUser(HttpUser):
         self.client.get("/this_does_not_exist")
 ```
 
-![alt text](image.png)
+Your results should be something like this (the mock intentionally has some concurrency issues, so you'll get steadily rising response times as the load increases):
+
+![Locust Cloud](screenshot.png)
 
 ## Extra python packages
 

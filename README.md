@@ -12,15 +12,48 @@ locust-cloud is installed as a regular Python program:
 pip install locust-cloud
 ```
 
+## Authenticate
+
 To authenticate, locust-cloud needs the credentials you set up during registration.
+If you've just installed locust-cloud and try to run some command you'll be prompted to log in
+```
+$ locust-cloud -f locustfile.py
+You need to authenticate before proceeding. Please run:
+    locust-cloud --login
+```
+When running that command you will get to choose a region and a webpage will be opened in your browser where you will perform your login.
+```
+$ locust-cloud --login
+Enter the number for the region to authenticate against
 
-In your `.zshrc`/`.bashrc` or other login script, add this:
+  1. us-east-1
+  2. eu-north-1
 
+> 1
+
+Attempting to automatically open the SSO authorization page in your default browser.
+If the browser does not open or you wish to use a different device to authorize this request, open the following URL:
+
+https://auth.us-east-1.locust.cloud/login?<login parameters>
+```
+Once you have performed the login on the webpage credentials will be stored for you by the locust-cloud CLI and you will not
+have to log in again for quite a while.
+
+### Using locust-cloud in a CI/CD environment
+
+If you want to run locust-cloud in a CI/CD environment an interactive login procedure is obviously not optimal.
+For that usecase you can run locust-cloud with the `--non-interactive` flag where locust-cloud will expect to
+find credentials in environment variables instead.
+
+```
+$ locust-cloud --non-interactive
+Running with --non-interactive requires that LOCUSTCLOUD_USERNAME, LOCUSTCLOUD_PASSWORD and LOCUSTCLOUD_REGION environment variables are set.
+```
+Simply make sure to export the corrent environment variables before running the command and things will work.
 ```bash
 export LOCUSTCLOUD_USERNAME='your@email.com'
 export LOCUSTCLOUD_PASSWORD='yourpassword'
-# us-east-1 is the default region, if you are in EU, use this:
-export LOCUSTCLOUD_REGION='eu-north-1'
+export LOCUSTCLOUD_REGION='us-east-1'
 ```
 
 ## Notes
@@ -31,8 +64,40 @@ export LOCUSTCLOUD_REGION='eu-north-1'
 
 ### List available options
 
-```bash
-locust-cloud --help
+```
+$ locust-cloud --help
+usage: locust-cloud [-f <filename>] [-u USERS] [--loglevel LOGLEVEL] [--requirements REQUIREMENTS] [--login] [--non-interactive] [--workers WORKERS] [--delete] [--mock-server] [--profile PROFILE] [--extra-files [EXTRA_FILES ...]]
+
+Launches a distributed Locust runs on locust.cloud infrastructure.
+
+Example: locust-cloud -f my_locustfile.py --users 1000 ...
+
+options:
+  -f <filename>, --locustfile <filename>
+                        The Python file that contains your test. Defaults to 'locustfile.py'.
+  -u USERS, --users USERS
+                        Number of users to launch. This is the same as the regular Locust argument, but also affects how many workers to launch.
+  --workers WORKERS     Number of workers to use for the deployment. Defaults to number of users divided by 500, but the default may be customized for your account.
+  --delete              Delete a running cluster. Useful if locust-cloud was killed/disconnected or if there was an error.
+  --mock-server         Start a demo mock service and set --host parameter to point Locust towards it
+  --profile PROFILE     Set a profile to group the testruns together
+  --extra-files [EXTRA_FILES ...]
+                        A list of extra files or directories to upload. Space-separated, e.g. --extra-files testdata.csv *.py my-directory/
+
+advanced:
+  --loglevel LOGLEVEL, -L LOGLEVEL
+                        Set --loglevel DEBUG for extra info.
+  --requirements REQUIREMENTS
+                        Optional requirements.txt file that contains your external libraries.
+  --login               Launch an interactive session to authenticate your user.
+                        Once completed your credentials will be stored and automatically refreshed for quite a long time.
+                        Once those expires you will be prompted to perform another login.
+  --non-interactive     This can be set when, for example, running in a CI/CD environment to ensure no interactive steps while executing.
+                        Requires that LOCUSTCLOUD_USERNAME, LOCUSTCLOUD_PASSWORD and LOCUSTCLOUD_REGION environment variables are set.
+
+Any parameters not listed here are forwarded to locust master unmodified, so go ahead and use things like --users, --host, --run-time, ...
+Locust config can also be set using config file (~/.locust.conf, locust.conf, pyproject.toml, ~/.cloud.conf or cloud.conf).
+Parameters specified on command line override env vars, which in turn override config files.
 ```
 
 ### Basic way to run locust-cloud

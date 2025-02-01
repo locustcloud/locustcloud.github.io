@@ -1,6 +1,6 @@
 ## Welcome to Locust Cloud
 
-Thanks for choosing Locust Cloud as your load test provider!
+Thank you for choosing Locust Cloud as your load test provider!
 
 If you have questions or get stuck, feel free to reach out to us on [support@locust.cloud](mailto:support@locust.cloud).
 

@@ -2,7 +2,7 @@
 
 Thank you for choosing Locust Cloud as your load test provider!
 
-If you have questions or get stuck, feel free to reach out to us on [support@locust.cloud](mailto:support@locust.cloud).
+If you have questions or get stuck, feel free to reach out to us at [support@locust.cloud](mailto:support@locust.cloud).
 
 ## Installation
 

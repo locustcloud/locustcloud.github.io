@@ -112,7 +112,7 @@ Your results should be something like this (the mock intentionally has some conc
 
 ![Locust Cloud](screenshot.png)
 
-Note: Don't use the `--mock-server` option when you are doing normal load tests. It is only meant as an example and serves no other purpose.
+Note: Don't use the mock server option when you are doing normal load tests. It is only meant as an example and serves no other purpose.
 
 ### Passing options to Locust
 

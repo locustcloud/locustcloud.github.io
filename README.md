@@ -1,4 +1,5 @@
-## Welcome to Locust Cloud
+Welcome to Locust Cloud
+=======================
 
 Thank you for choosing Locust Cloud as your load test provider!
 

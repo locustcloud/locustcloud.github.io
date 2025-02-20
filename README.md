@@ -122,12 +122,7 @@ Here's how to run a 100 User test, start immediately, run for 60 seconds,
 quit 1s after finishing and print statistics to the console while running:
 
 ```
-locust-cloud --users 100 --autostart --run-time 60s --autoquit 1 --print-stats
-```
-
-Output:
-
-```
+$ locust-cloud --users 100 --autostart --run-time 60s --autoquit 1 --print-stats
 [LOCUST-CLOUD] INFO: Authenticating (eu-north-1, v1.11.2.dev23)
 [LOCUST-CLOUD] INFO: Deploying load generators
 [LOCUST-CLOUD] INFO: Waiting for pods to be ready...

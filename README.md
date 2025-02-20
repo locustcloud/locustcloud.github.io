@@ -6,9 +6,9 @@ If you have questions or get stuck, feel free to reach out to us at [support@loc
 
 ## Installation
 
-locust-cloud is installed as a regular Python program:
+locust-cloud is installed as a regular Python package:
 
-```bash
+```
 pip install locust-cloud
 ```
 
@@ -16,12 +16,15 @@ pip install locust-cloud
 
 To authenticate, locust-cloud needs the credentials you set up during registration.
 If you've just installed locust-cloud and try to run some command you'll be prompted to log in
+
 ```
 $ locust-cloud -f locustfile.py
 You need to authenticate before proceeding. Please run:
     locust-cloud --login
 ```
+
 When running that command you will get to choose a region and a webpage will be opened in your browser where you will perform your login.
+
 ```
 $ locust-cloud --login
 Enter the number for the region to authenticate against
@@ -36,6 +39,7 @@ If the browser does not open or you wish to use a different device to authorize 
 
 https://auth.us-east-1.locust.cloud/login?<login parameters>
 ```
+
 Once you have performed the login on the webpage credentials will be stored for you by the locust-cloud CLI and you will not
 have to log in again for quite a while.
 
@@ -49,8 +53,10 @@ find credentials in environment variables instead.
 $ locust-cloud --non-interactive
 Running with --non-interactive requires that LOCUSTCLOUD_USERNAME, LOCUSTCLOUD_PASSWORD and LOCUSTCLOUD_REGION environment variables are set.
 ```
+
 Simply make sure to export the corrent environment variables before running the command and things will work.
-```bash
+
+```
 export LOCUSTCLOUD_USERNAME='your@email.com'
 export LOCUSTCLOUD_PASSWORD='yourpassword'
 export LOCUSTCLOUD_REGION='us-east-1'
@@ -102,7 +108,7 @@ Parameters specified on command line override env vars, which in turn override c
 
 ### Basic way to run locust-cloud
 
-```bash
+```
 locust-cloud -f my_locustfile.py --users 100 # ... other regular locust parameters
 ```
 
@@ -140,7 +146,7 @@ Here's a more complex example showing how to pass additional parameters to Locus
 It will run a 100 user test, start immediately, run for 60 seconds,
 quit 1s after finishing and print statistics to the console while running:
 
-```bash
+```
 locust-cloud --mock-server --users 100 --autostart --run-time 60s --autoquit 1 --print-stats
 ```
 
@@ -201,6 +207,6 @@ Error report
 
 If your locustfile needs some additional Python package, you can instruct it to install them by specifying a [requirements.txt](https://pip.pypa.io/en/stable/reference/requirements-file-format/) file:
 
-```bash
+```
 locust-cloud -f my_locustfile.py --requirements requirements.txt
 ```

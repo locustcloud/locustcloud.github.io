@@ -9,38 +9,38 @@ If you have questions or get stuck, feel free to reach out to us at [support@loc
 
 ## First run
 
-1. `Install Python <https://docs.python-guide.org/starting/installation/>`_ (if you dont already have it)
+1. [Install Python](https://docs.python-guide.org/starting/installation/), if you dont already have it.
 
 2. Install locust-cloud
 
-```
-$ pip install locust-cloud
-Collecting locust-cloud
-...
-```
+    ```
+    $ pip install locust-cloud
+    Collecting locust-cloud
+    ...
+    ```
 
 3. Log in
 
-```
-$ locust-cloud --login
-Enter the number for the region to authenticate against
+    ```
+    $ locust-cloud --login
+    Enter the number for the region to authenticate against
 
-  1. us-east-1
-  2. eu-north-1
+    1. us-east-1
+    2. eu-north-1
 
-> 1
+    > 1
 
-Attempting to automatically open the SSO authorization page in your default browser.
-...
-```
+    Attempting to automatically open the SSO authorization page in your default browser.
+    ...
+    ```
 
-After logging in, an API token will be stored on your machine, and you will not need to log in until it expires.
+    After logging in, an API token will be stored on your machine, and you will not need to log in until it expires.
 
 4. Run a load test
 
-```
-locust-cloud -f my_locustfile.py --users 100 # ... other regular locust parameters
-```
+    ```
+    locust-cloud -f my_locustfile.py --users 100 # ... other regular locust parameters
+    ```
 
 ## List available options
 

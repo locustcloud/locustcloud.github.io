@@ -4,6 +4,9 @@
 
 Thank you for choosing Locust Cloud as your load test provider!
 
+* toc
+{:toc}
+
 If you have questions or get stuck, feel free to reach out to us at [support@locust.cloud](mailto:support@locust.cloud).
 
 ## Installation
@@ -66,7 +69,7 @@ export LOCUSTCLOUD_REGION='us-east-1'
 
 ## Notes
 
-- Remember to only direct locust-cloud at sites/services you actually own, or have permission to load test.
+* Remember to only direct locust-cloud at sites/services you actually own, or have permission to load test.
 
 ## Usage
 

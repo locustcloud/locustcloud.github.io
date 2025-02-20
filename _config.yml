@@ -1,2 +1,4 @@
 title: Locust Cloud Documentation
 markdown: kramdown
+plugins:
+  - jekyll-toc

@@ -39,7 +39,7 @@ If you have questions or get stuck, feel free to reach out to us at [support@loc
 4. Run a load test
 
     ```
-    locust-cloud -f my_locustfile.py --users 100 # ... other regular locust parameters
+    $ locust-cloud -f my_locustfile.py --users 100 # ... other regular locust parameters
     [LOCUST-CLOUD] INFO: Deploying load generators
     [LOCUST-CLOUD] INFO: Waiting for load generators to be ready...
     ...

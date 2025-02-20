@@ -1,4 +1,4 @@
-<span style="font-size: 24px; font-weight: bold;">Welcome to Locust Cloud</span>
+<span style="font-size: 24px;">Welcome to Locust Cloud</span>
 
 Thank you for choosing Locust Cloud as your load test provider!
 
@@ -46,7 +46,7 @@ locust-cloud -f my_locustfile.py --users 100 # ... other regular locust paramete
 
 ```
 $ locust-cloud --help
-usage: locust-cloud [-f <filename>] [-u USERS] [--loglevel LOGLEVEL] [--requirements REQUIREMENTS] [--login] [--non-interactive] [--workers WORKERS] [--delete] [--mock-server] [--profile PROFILE] [--extra-files [EXTRA_FILES ...]]
+usage: locust-cloud [-f <filename>] [-u USERS] [--loglevel {DEBUG,INFO,WARNING,ERROR}] [--requirements REQUIREMENTS] [--login] [--non-interactive] [--workers WORKERS] [--delete] [--mock-server] [--profile PROFILE] [--extra-files [EXTRA_FILES ...]]
 
 Launches a distributed Locust runs on locust.cloud infrastructure.
 
@@ -65,7 +65,7 @@ options:
                         A list of extra files or directories to upload. Space-separated, e.g. --extra-files testdata.csv *.py my-directory/
 
 advanced:
-  --loglevel LOGLEVEL, -L LOGLEVEL
+  --loglevel {DEBUG,INFO,WARNING,ERROR}, -L {DEBUG,INFO,WARNING,ERROR}
                         Set --loglevel DEBUG for extra info.
   --requirements REQUIREMENTS
                         Optional requirements.txt file that contains your external libraries.
@@ -82,9 +82,9 @@ Parameters specified on command line override env vars, which in turn override c
 
 ## Examples
 
-### Mock server
+### Locustfile and mock server
 
-If you're learning Locust and want to try it out, Locust Cloud has its own demo mock server you can test against, using the locustfile below. Pass `--mock-server` to spawn the mock next to your load generators and point Locust towards it.
+If you're learning Locust and want to try it out, Locust Cloud has its own demo mock server you can test against, using the locustfile below. Pass `--mock-server` to spawn the mock next to your load generators and set Locust target hostname accordingly.
 
 ```bash
 locust-cloud -f my_locustfile.py --users 100 --mock-server
@@ -108,6 +108,8 @@ class MyUser(HttpUser):
 Your results should be something like this (the mock intentionally has some concurrency issues, so you'll get steadily rising response times as the load increases):
 
 ![Locust Cloud](screenshot.png)
+
+Note: Don't use the `--mock-server` option when you are doing normal load tests. It is only meant as an example and serves no other purpose.
 
 ### Passing options to Locust
 

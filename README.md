@@ -1,5 +1,4 @@
-Welcome to Locust Cloud
-=======================
+<span style="font-size: 24px; font-weight: bold;">Welcome to Locust Cloud</span>
 
 Thank you for choosing Locust Cloud as your load test provider!
 

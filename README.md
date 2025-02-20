@@ -223,3 +223,7 @@ If your locustfile needs some additional Python packages, you can install them b
 ```
 locust-cloud -f my_locustfile.py --requirements requirements.txt
 ```
+
+### View dashboard / previous test runs
+
+You can examine the results from previous test runs (without needing to start your load generators) from your [Locust Cloud dashboard](https://api.eu-north-1.locust.cloud/1/region-select)

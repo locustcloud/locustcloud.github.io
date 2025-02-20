@@ -42,7 +42,7 @@ After logging in, an API token will be stored on your machine, and you will not 
 locust-cloud -f my_locustfile.py --users 100 # ... other regular locust parameters
 ```
 
-### List available options
+## List available options
 
 ```
 $ locust-cloud --help
@@ -80,7 +80,9 @@ Locust config can also be set using config file (~/.locust.conf, locust.conf, py
 Parameters specified on command line override env vars, which in turn override config files.
 ```
 
-### Complete example
+## Examples
+
+### Mock server
 
 If you're learning Locust and want to try it out, Locust Cloud has its own demo mock server you can test against, using the locustfile below. Pass `--mock-server` to spawn the mock next to your load generators and point Locust towards it.
 
@@ -107,15 +109,13 @@ Your results should be something like this (the mock intentionally has some conc
 
 ![Locust Cloud](screenshot.png)
 
-## Advanced example
+### Passing additional parameters to Locust
 
-Here's a more complex example showing how to pass additional parameters to Locust.
-
-It will run a 100 user test, start immediately, run for 60 seconds,
+Here's how to run a 100 User test, start immediately, run for 60 seconds,
 quit 1s after finishing and print statistics to the console while running:
 
 ```
-locust-cloud --mock-server --users 100 --autostart --run-time 60s --autoquit 1 --print-stats
+locust-cloud --users 100 --autostart --run-time 60s --autoquit 1 --print-stats
 ```
 
 Output:
@@ -171,7 +171,7 @@ Error report
 [LOCUST-CLOUD] INFO: Done! ✨
 ```
 
-## Extra python packages
+### Extra python packages
 
 If your locustfile needs some additional Python package, you can instruct it to install them by specifying a [requirements.txt](https://pip.pypa.io/en/stable/reference/requirements-file-format/) file:
 
@@ -179,7 +179,7 @@ If your locustfile needs some additional Python package, you can instruct it to 
 locust-cloud -f my_locustfile.py --requirements requirements.txt
 ```
 
-## Using locust-cloud in a CI/CD environment
+### Automated runs (CI)
 
 If you want to run locust-cloud in a CI/CD environment, where an interactive login is not possible, you can set the `--non-interactive` flag or `LOCUSTCLOUD_NON_INTERACTIVE` environment variable. Then locust-cloud will use credentials specified environment variables instead.
 

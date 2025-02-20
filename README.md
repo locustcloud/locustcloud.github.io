@@ -11,7 +11,7 @@ If you have questions or get stuck, feel free to reach out to us at [support@loc
 
 1. [Install Python](https://docs.python-guide.org/starting/installation/), if you dont already have it.
 
-2. Install locust-cloud
+2. Install `locust-cloud`
 
     ```
     $ pip install locust-cloud
@@ -116,7 +116,7 @@ Note: Don't use the mock server option when you are doing normal load tests. It 
 
 ### Passing options to Locust
 
-Any parameters specified on command line that are not recognized by locust-cloud will be passed along to Locust. This allows for a seamless transition from local runs to cloud runs.
+Any parameters specified on command line that are not recognized by `locust-cloud` will be passed along to Locust. This allows for a seamless transition from local runs to cloud runs.
 
 Here's how to run a 100 User test, start immediately, run for 60 seconds,
 quit 1s after finishing and print statistics to the console while running:
@@ -186,7 +186,7 @@ LOCUST_USERS=100 LOCUST_AUTOSTART=1 ... locust-cloud
 
 ### Automated runs (CI)
 
-If you want to run locust-cloud in a CI/CD environment, where an interactive login is not possible, you can set the `--non-interactive` flag or `LOCUSTCLOUD_NON_INTERACTIVE` environment variable. Then locust-cloud will use credentials specified environment variables instead.
+If you want to run `locust-cloud` in a CI/CD environment, where an interactive login is not possible, you can set the `--non-interactive` flag or `LOCUSTCLOUD_NON_INTERACTIVE` environment variable. Then `locust-cloud` will use credentials specified environment variables instead.
 
 Simply make sure to export the corrent environment variables before running the command and things will work.
 
@@ -223,7 +223,7 @@ jobs:
 
 ### Extra python packages
 
-If your locustfile needs some additional Python package, you can instruct it to install them by specifying a [requirements.txt](https://pip.pypa.io/en/stable/reference/requirements-file-format/) file:
+If your locustfile needs some additional Python packages, you can install them by specifying a [requirements.txt](https://pip.pypa.io/en/stable/reference/requirements-file-format/) file:
 
 ```
 locust-cloud -f my_locustfile.py --requirements requirements.txt

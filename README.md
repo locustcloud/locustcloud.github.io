@@ -7,26 +7,19 @@ Thank you for choosing Locust Cloud as your load test provider!
 
 If you have questions or get stuck, feel free to reach out to us at [support@locust.cloud](mailto:support@locust.cloud).
 
-## Installation
+## First run
 
-locust-cloud is installed as a regular Python package:
+1. `Install Python <https://docs.python-guide.org/starting/installation/>`_ (if you dont already have it)
 
-```
-pip install locust-cloud
-```
-
-## Authenticate
-
-To authenticate, locust-cloud needs the credentials you set up during registration.
-If you've just installed locust-cloud and try to run some command you'll be prompted to log in
+2. Install locust-cloud
 
 ```
-$ locust-cloud -f locustfile.py
-You need to authenticate before proceeding. Please run:
-    locust-cloud --login
+$ pip install locust-cloud
+Collecting locust-cloud
+...
 ```
 
-When running that command you will get to choose a region and a webpage will be opened in your browser where you will perform your login.
+3. Log in
 
 ```
 $ locust-cloud --login
@@ -38,38 +31,16 @@ Enter the number for the region to authenticate against
 > 1
 
 Attempting to automatically open the SSO authorization page in your default browser.
-If the browser does not open or you wish to use a different device to authorize this request, open the following URL:
-
-https://auth.us-east-1.locust.cloud/login?<login parameters>
+...
 ```
 
-Once you have performed the login on the webpage credentials will be stored for you by the locust-cloud CLI and you will not
-have to log in again for quite a while.
+After logging in, an API token will be stored on your machine, and you will not need to log in until it expires.
 
-### Using locust-cloud in a CI/CD environment
-
-If you want to run locust-cloud in a CI/CD environment an interactive login procedure is obviously not optimal.
-For that usecase you can run locust-cloud with the `--non-interactive` flag where locust-cloud will expect to
-find credentials in environment variables instead.
+4. Run a load test
 
 ```
-$ locust-cloud --non-interactive
-Running with --non-interactive requires that LOCUSTCLOUD_USERNAME, LOCUSTCLOUD_PASSWORD and LOCUSTCLOUD_REGION environment variables are set.
+locust-cloud -f my_locustfile.py --users 100 # ... other regular locust parameters
 ```
-
-Simply make sure to export the corrent environment variables before running the command and things will work.
-
-```
-export LOCUSTCLOUD_USERNAME='your@email.com'
-export LOCUSTCLOUD_PASSWORD='yourpassword'
-export LOCUSTCLOUD_REGION='us-east-1'
-```
-
-## Notes
-
-* Remember to only direct locust-cloud at sites/services you actually own, or have permission to load test.
-
-## Usage
 
 ### List available options
 
@@ -107,12 +78,6 @@ advanced:
 Any parameters not listed here are forwarded to locust master unmodified, so go ahead and use things like --users, --host, --run-time, ...
 Locust config can also be set using config file (~/.locust.conf, locust.conf, pyproject.toml, ~/.cloud.conf or cloud.conf).
 Parameters specified on command line override env vars, which in turn override config files.
-```
-
-### Basic way to run locust-cloud
-
-```
-locust-cloud -f my_locustfile.py --users 100 # ... other regular locust parameters
 ```
 
 ### Complete example
@@ -212,4 +177,42 @@ If your locustfile needs some additional Python package, you can instruct it to 
 
 ```
 locust-cloud -f my_locustfile.py --requirements requirements.txt
+```
+
+## Using locust-cloud in a CI/CD environment
+
+If you want to run locust-cloud in a CI/CD environment, where an interactive login is not possible, you can set the `--non-interactive` flag or `LOCUSTCLOUD_NON_INTERACTIVE` environment variable. Then locust-cloud will use credentials specified environment variables instead.
+
+Simply make sure to export the corrent environment variables before running the command and things will work.
+
+```
+export LOCUSTCLOUD_NON_INTERACTIVE=1
+export LOCUSTCLOUD_USERNAME='your@email.com'
+export LOCUSTCLOUD_PASSWORD='yourpassword'
+export LOCUSTCLOUD_REGION='us-east-1'
+locust-cloud -f my_locustfile.py
+...
+```
+
+Here's a full example of how to run locust-cloud from a GitHub action:
+
+```
+env:
+  LOCUSTCLOUD_USERNAME: ${{ secrets.LOCUSTCLOUD_USERNAME }}
+  LOCUSTCLOUD_PASSWORD: ${{ secrets.LOCUSTCLOUD_PASSWORD }}
+  LOCUSTCLOUD_REGION: eu-north-1
+  LOCUSTCLOUD_NON_INTERACTIVE: 1
+  PYTHONUNBUFFERED: 1 # ensure we see output right away
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+            python-version: '3.11' 
+      - run: pip install locust-cloud
+      - run: locust-cloud --profile status-checker --headless --run-time 5m
 ```

@@ -184,14 +184,6 @@ You can also use standard Locust env vars in the same fashion:
 LOCUST_USERS=100 LOCUST_AUTOSTART=1 ... locust-cloud
 ```
 
-### Extra python packages
-
-If your locustfile needs some additional Python package, you can instruct it to install them by specifying a [requirements.txt](https://pip.pypa.io/en/stable/reference/requirements-file-format/) file:
-
-```
-locust-cloud -f my_locustfile.py --requirements requirements.txt
-```
-
 ### Automated runs (CI)
 
 If you want to run locust-cloud in a CI/CD environment, where an interactive login is not possible, you can set the `--non-interactive` flag or `LOCUSTCLOUD_NON_INTERACTIVE` environment variable. Then locust-cloud will use credentials specified environment variables instead.
@@ -203,11 +195,10 @@ export LOCUSTCLOUD_NON_INTERACTIVE=1
 export LOCUSTCLOUD_USERNAME='your@email.com'
 export LOCUSTCLOUD_PASSWORD='yourpassword'
 export LOCUSTCLOUD_REGION='us-east-1'
-locust-cloud -f my_locustfile.py
 ...
 ```
 
-Here's a full example of how to run locust-cloud from a GitHub action:
+Typically you will also want to specify the standard Locust parameters `--headless` (or `--autostart`) and `--run-time` as shown in the previous example. Here's a full example of how you might set it up in a GitHub action:
 
 ```
 env:
@@ -227,5 +218,13 @@ jobs:
         with:
             python-version: '3.11' 
       - run: pip install locust-cloud
-      - run: locust-cloud --profile status-checker --headless --run-time 5m
+      - run: locust-cloud -f my_locustfile.py --headless --run-time 5m
+```
+
+### Extra python packages
+
+If your locustfile needs some additional Python package, you can instruct it to install them by specifying a [requirements.txt](https://pip.pypa.io/en/stable/reference/requirements-file-format/) file:
+
+```
+locust-cloud -f my_locustfile.py --requirements requirements.txt
 ```

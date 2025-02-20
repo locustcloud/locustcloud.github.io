@@ -1,7 +1,5 @@
 ## Welcome to Locust Cloud
 
-{% include toc.html html=content %}
-
 Thank you for choosing Locust Cloud as your load test provider!
 
 * toc

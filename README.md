@@ -1,6 +1,6 @@
-<span style="font-size: 24px; font-weight: bold;">Welcome to Locust Cloud</span>
+Thank you for choosing [Locust Cloud](https://locust.cloud/) as your load test provider!
 
-Thank you for choosing Locust Cloud as your load test provider!
+For documentation on Locust itself, see [docs.locust.io](https://docs.locust.io).
 
 * toc
 {:toc}

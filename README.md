@@ -109,7 +109,9 @@ Your results should be something like this (the mock intentionally has some conc
 
 ![Locust Cloud](screenshot.png)
 
-### Passing additional parameters to Locust
+### Passing options to Locust
+
+Any parameters specified on command line that are not recognized by locust-cloud will be passed along to Locust. This allows for a seamless transition from local runs to cloud runs.
 
 Here's how to run a 100 User test, start immediately, run for 60 seconds,
 quit 1s after finishing and print statistics to the console while running:
@@ -169,6 +171,12 @@ Error report
 ------------------|------------------------------------------------------------------------------------------------------------
 [LOCUST-CLOUD] INFO: Tearing down Locust cloud...
 [LOCUST-CLOUD] INFO: Done! ✨
+```
+
+You can also use standard Locust env vars in the same fashion:
+
+```
+LOCUST_USERS=100 LOCUST_AUTOSTART=1 ... locust-cloud
 ```
 
 ### Extra python packages

@@ -40,6 +40,9 @@ If you have questions or get stuck, feel free to reach out to us at [support@loc
 
     ```
     locust-cloud -f my_locustfile.py --users 100 # ... other regular locust parameters
+    [LOCUST-CLOUD] INFO: Deploying load generators
+    [LOCUST-CLOUD] INFO: Waiting for load generators to be ready...
+    ...
     ```
 
 ## List available options

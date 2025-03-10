@@ -96,10 +96,9 @@ locust-cloud -f my_locustfile.py --users 100 --mock-server
 ```python
 from locust import HttpUser, task
 
-
 class MyUser(HttpUser):
     @task
-    def t(self) -> None:
+    def t(self):
         self.client.post("/authenticate", json={"username": "foo", "password": "bar"})
         for product_id in [1, 2, 42]:
             self.client.get(f"/product/{product_id}", name="/product/{product_id}")

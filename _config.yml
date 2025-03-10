@@ -4,3 +4,9 @@ plugins:
   - jekyll-remote-theme
 minima:
   skin: auto
+
+markdown: kramdown
+highlighter: rouge
+
+rouge:
+  line_numbers: true

@@ -77,6 +77,8 @@ advanced:
                         Once those expires you will be prompted to perform another login.
   --non-interactive     This can be set when, for example, running in a CI/CD environment to ensure no interactive steps while executing.
                         Requires that LOCUSTCLOUD_USERNAME, LOCUSTCLOUD_PASSWORD and LOCUSTCLOUD_REGION environment variables are set.
+  --testrun-tags [TESTRUN_TAGS ...]
+                        A list of tags that can be used to filter testruns
 
 Any parameters not listed here are forwarded to locust master unmodified, so go ahead and use things like --users, --host, --run-time, ...
 Locust config can also be set using config file (~/.locust.conf, locust.conf, pyproject.toml, ~/.cloud.conf or cloud.conf).

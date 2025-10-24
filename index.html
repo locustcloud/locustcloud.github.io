@@ -1,5 +1,13 @@
 <!DOCTYPE html>
-<meta charset="utf-8">
-<title>Redirecting to https://docs.locust.io/en/stable/locust-cloud/locust-cloud.html</title>
-<meta http-equiv="refresh" content="0; URL=https://docs.locust.io/en/stable/locust-cloud/locust-cloud.html">
-<link rel="canonical" href="https://docs.locust.io/en/stable/locust-cloud/locust-cloud.html">
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Redirecting to https://docs.locust.io/en/stable/locust-cloud/locust-cloud.html</title>
+  <link rel="canonical" href="https://docs.locust.io/en/stable/locust-cloud/locust-cloud.html">
+  <script>
+    // Only redirect if the user isn't trying to access /k8s-operator
+    if (!window.location.pathname.startsWith('/k8s-operator')) {
+      window.location.replace("https://docs.locust.io/en/stable/locust-cloud/locust-cloud.html");
+    }
+  </script>
+</head>
